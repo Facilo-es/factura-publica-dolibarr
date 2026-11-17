@@ -1,0 +1,334 @@
+# Factura Pública - Copyright (C) 2026 Facilo <info@facilo.es> - GPL v3
+#
+# Módulo
+#
+Module210217Name=Factura Pública
+Module210217Desc=Envía tus facturas a las administraciones públicas desde Dolibarr: Facturae firmada, envío a FACe y seguimiento hasta el cobro.
+FacturaPublicaDescription=Envía tus facturas a las administraciones públicas desde Dolibarr: Facturae firmada, envío a FACe y seguimiento hasta el cobro.
+FacturaPublica=Factura Pública
+FpRightRead=Ver el estado de las facturas en FACe
+FpRightSend=Enviar facturas a FACe y solicitar anulaciones
+FpRightSetup=Configurar Factura Pública y el certificado
+FpMenuSummary=Facturas a administraciones
+FpWidgetTitle=Facturas a administraciones
+FpTabName=Factura Pública
+FpTabWizard=Puesta en marcha
+FpTabOptions=Opciones
+FpTabImport=Importar DIR3
+FpTabAbout=Acerca de
+FpCron=Factura Pública
+FpCronDaily=Factura Pública: estados de FACe y aviso del certificado
+FpCronDailyHelp=Consulta en FACe el estado de las facturas enviadas que aún no están pagadas ni rechazadas, y avisa si el certificado caduca en 30 o 7 días.
+FpCronWeekly=Factura Pública: lista de organismos de FACe
+FpCronWeeklyHelp=Actualiza la lista de organismos y códigos DIR3 de FACe.
+FpTestModeBar=Modo pruebas: los envíos van al entorno de pruebas de FACe y no llegan a ninguna administración.
+FpCertExpiredBar=Tu certificado caducó el %s. Sube uno nuevo para seguir enviando facturas.
+FpLiteLock=Disponible en Factura Pública completa: firma, envío a FACe y seguimiento hasta el cobro.
+FpLiteLocked=Disponible en Factura Pública completa: firma, envío a FACe y seguimiento hasta el cobro.
+FpSeeOnStore=Ver Factura Pública completa
+FpUninstallCert=Borrar también el certificado
+FpUninstallCertHelp=Si lo marcas, al desactivar el módulo se borra el certificado guardado. Las facturas enviadas y su historial se conservan.
+#
+# Asistente
+#
+FpWizardTitle=Prepara el envío a FACe en cuatro pasos
+FpStep1=Datos de tu empresa
+FpStep2=Tu certificado digital
+FpStep3=Registra tu certificado en FACe
+FpStep4=Prueba la conexión
+FpStep1Intro=Estos datos salen en cada factura que envías. Revisa que estén completos.
+FpStep1Missing=Falta %s. Complétalo en Configuración > Empresa.
+FpComplete=Completar
+FpAllGood=Todo listo.
+FpNext=Siguiente
+FpBack=Volver
+FpStep2Intro=Sube el certificado de la empresa o de su representante (.p12 o .pfx). Con él firmamos tus facturas y hablamos con FACe. Se guarda cifrado en tu servidor y nunca sale de él.
+FpCertFile=Archivo del certificado
+FpCertPass=Contraseña del certificado
+FpCertCheck=Comprobar certificado
+FpCertResult=Titular: %s · NIF: %s · Emitido por: %s · Caduca el %s
+FpCertBoth=Sirve para firmar facturas y para conectar con FACe.
+FpCertSeal=Este certificado sirve para conectar con FACe, pero no para firmar facturas. Sube un certificado de representante o de persona física.
+FpCertErrPass=La contraseña no es correcta.
+FpCertErrNotP12=Este archivo no es un certificado .p12 o .pfx.
+FpCertErrExpired=Este certificado caducó el %s.
+FpCertErrNotYet=Este certificado no es válido hasta el %s.
+FpCertErrNoKey=El archivo no incluye la clave privada. Expórtalo de nuevo marcando «Exportar la clave privada».
+FpCertErrLegacy=Este certificado usa un cifrado antiguo que el servidor no puede abrir. Expórtalo de nuevo desde tu navegador o pide a tu proveedor que active el soporte «legacy» de OpenSSL.
+FpCertErrStore=No hemos podido guardar el certificado en el servidor. Comprueba que la carpeta de documentos de Dolibarr admite escritura.
+FpCertNifDiffers=El NIF del certificado (%s) no coincide con el de tu empresa (%s). Si es el certificado de tu representante, puedes seguir.
+FpCertSaved=Certificado guardado.
+FpCertCurrent=Certificado actual
+FpCertReplace=Cambiar el certificado
+FpStep3Intro=FACe solo acepta envíos de certificados que conoce. Hazlo una vez:
+FpStep3a=Copia la clave pública de abajo.
+FpStep3b=Entra en FACe, en el apartado de proveedores, e identifícate.
+FpStep3c=Da de alta el certificado para servicios web y pega la clave.
+FpOpenFace=Abrir FACe
+FpCopyKey=Copiar clave pública
+FpCopied=Copiada
+FpDownloadKey=Descargar clave (.pem)
+FpRegisteredDone=Ya lo he registrado en FACe
+FpEnv=Entorno
+FpEnvProd=Real
+FpEnvTest=Pruebas (no llega a ninguna administración)
+FpTestConn=Probar conexión
+FpConnOk=Conectado con FACe. Ya puedes enviar facturas.
+FpConnNotRegistered=FACe no reconoce este certificado. Comprueba que lo registraste en el paso 3. A veces tarda unos minutos.
+FpConnNetwork=No hemos podido llegar a FACe. Comprueba la conexión a internet del servidor y vuelve a probar.
+FpConnError=FACe ha devuelto un error al probar la conexión. Vuelve a probar en unos minutos.
+FpConnNoCert=Primero sube un certificado válido en el paso 2.
+FpPersonType=Tipo de emisor
+FpPersonAuto=Según el NIF: %s
+FpPersonJ=Persona jurídica (empresa)
+FpPersonF=Persona física (autónomo)
+FpConnAdmins=FACe ha devuelto %s administraciones.
+FpNeedCertFirst=Primero sube un certificado válido en el paso 2.
+FpSetupNoRight=No tienes permiso para configurar Factura Pública.
+#
+# Opciones
+#
+FpOptionsTitle=Opciones de Factura Pública
+FpOptAttachPdf=Adjuntar el PDF de la factura al archivo Facturae
+FpOptAttachPdfHelp=FACe lo admite y muchos organismos lo agradecen. Si el archivo pasa de 10 MB, quítalo.
+FpOptTsa=Sello de tiempo (opcional)
+FpOptTsaHelp=Dirección de un servidor de sellado de tiempo (TSA). Déjalo vacío si no lo necesitas.
+FpOptVfMode=URL de cotejo VERI*FACTU
+FpOptVfModeHelp=La URL del código QR VERI*FACTU la genera tu sistema de facturación. Si la factura la lleva, Factura Pública la copia tal cual en el archivo Facturae como un campo aparte, como exige la Orden HAC/1177/2024. Nunca la calcula, nunca crea registros VERI*FACTU y nunca envía nada a la AEAT.
+FpOptVfNone=No incluir
+FpOptVfAuto=Copiar automáticamente si la factura la tiene
+FpOptVfField=Copiar de un campo concreto de la factura
+FpOptVfFieldPick=Campo de la factura con la URL
+FpOptVfNoFields=Tus facturas no tienen campos adicionales.
+FpOptVfPlace=Dónde va en el archivo
+FpOptVfPlaceAdditional=Datos adicionales de la factura
+FpOptSplit=Separar serie y número
+FpOptSplitHelp=Si tus referencias son como FA2611-0042, envía «FA2611» como serie y «0042» como número. Si no, la referencia entera va como número.
+FpOptNotify=Email para avisos de FACe
+FpOptNotifyHelp=FACe escribe aquí cuando cambia el estado de una factura. Si lo dejas vacío, usamos el tuyo o el de la empresa.
+FpOptExemptOwn=Ninguno: pedirlo en cada línea
+FpOptExempt=Motivo de exención por defecto
+FpOptExemptHelp=Se usa en las líneas sin IVA que no tienen su propio motivo.
+FpOptSaved=Opciones guardadas.
+FpExemptE1=Exenta por el artículo 20 de la Ley del IVA
+FpExemptE2=Exenta por el artículo 21 de la Ley del IVA (exportación)
+FpExemptE3=Exenta por el artículo 22 de la Ley del IVA
+FpExemptE4=Exenta por los artículos 23 y 24 de la Ley del IVA
+FpExemptE5=Exenta por el artículo 25 de la Ley del IVA (entrega intracomunitaria)
+FpExemptE6=Exenta por otros motivos
+FpExemptIsp=Inversión del sujeto pasivo
+#
+# Importar DIR3
+#
+FpImportTitle=Importar códigos DIR3 de campos que ya tienes
+FpImportIntro=Si ya guardabas los códigos DIR3 de tus clientes en campos adicionales, elige qué campo tiene cada código y los copiamos a Factura Pública. Solo se rellenan los clientes que aún no tienen códigos.
+FpImportField=Campo adicional del tercero
+FpImportNone=No importar
+FpImportRun=Importar
+FpImportDone=Importados %s clientes. Omitidos %s que ya tenían códigos o con un formato no válido.
+FpImportNoFields=Tus terceros no tienen campos adicionales que importar.
+#
+# Acerca de
+#
+FpAboutIntro=Factura Pública convierte tus facturas validadas de Dolibarr en Facturae 3.2.2 firmada, las envía a FACe y sigue su estado hasta el cobro.
+FpAboutNot=Factura Pública no expide facturas ni genera registros VERI*FACTU: lee las facturas que tu programa ya ha emitido y nunca las modifica.
+FpAboutSupport=Ayuda: support@facilo.es
+FpAboutEdition=Edición
+FpEditionFull=Completa
+FpEditionLite=Lite
+FpAboutVersion=Versión
+FpAboutLibrary=Usa facturae-php de josemmo (licencia MIT).
+#
+# Pestaña del tercero
+#
+FpIsPublic=Es una Administración pública
+FpDir3Help=Los códigos DIR3 dicen a FACe a qué oficina va tu factura. Te los da el organismo, normalmente en el contrato o el pedido.
+FpDir3Search=Busca el organismo por nombre o código
+FpOc=Oficina contable
+FpOg=Órgano gestor
+FpUt=Unidad tramitadora
+FpOp=Órgano proponente (opcional)
+FpNeedsFileRef=Pide número de expediente
+FpNotifyEmail=Email para avisos de FACe (opcional)
+FpDir3Format=Un código DIR3 tiene 9 caracteres: una letra y 8 letras o números.
+FpDir3Refresh=Actualizar lista de FACe
+FpDir3Updated=Lista actualizada el %s
+FpDir3Never=La lista de FACe aún no se ha descargado.
+FpDir3NoResults=No hay resultados. Prueba con otra palabra o escribe el código DIR3 del organismo.
+FpDir3Use=Usar estos códigos
+FpDir3Save=Guardar
+FpDir3Find=Buscar en FACe
+FpDir3Searching=Buscando...
+FpDir3Refreshed=Lista de FACe actualizada: %s organismos.
+FpDir3RefreshError=No hemos podido descargar la lista de FACe: %s
+FpEmailFormat=El email no tiene un formato válido.
+FpSaved=Guardado.
+FpTabHistory=Facturas enviadas a FACe
+FpTabNoHistory=Aún no has enviado facturas de este cliente a FACe.
+#
+# Caja de la factura
+#
+FpBoxTitle=Factura Pública
+FpStepReview=Revisar
+FpStepFacturae=Facturae
+FpStepSign=Firma
+FpStepFace=FACe
+FpStepPaid=Cobro
+FpNotPublic=Este cliente no está marcado como Administración pública.
+FpConfigureIt=Configurarlo
+FpBeforeSend=Antes de enviar, revisa esto:
+FpBlockers=%s para corregir
+FpWarnings=%s avisos
+FpFix=Corregir
+FpGoToCert=Ir al certificado
+FpWriteUs=Escríbenos
+FpReady=Lista para enviar a %s.
+FpSend=Enviar a FACe
+FpSendOff=Corrige lo marcado en rojo para poder enviar.
+FpDownloadXml=Descargar Facturae
+FpDownloadSigned=Descargar firmada
+FpConfirmTitle=Enviar a FACe
+FpConfirmText=Vas a enviar la factura %s de %s € a %s. FACe la registrará y la hará llegar a su oficina contable.
+FpConfirmSend=Enviar
+FpConfirmCancel=Cancelar
+FpSentAt=Enviada el %s. Nº de registro FACe: %s.
+FpCheckNow=Comprobar ahora
+FpAskCancel=Solicitar anulación
+FpCancelTitle=Solicitar anulación en FACe
+FpCancelText=FACe pedirá al organismo que anule la factura %s. El organismo decide si la acepta.
+FpCancelReasonLabel=Motivo de la anulación
+FpRejectedAt=Rechazada el %s. Motivo: %s
+FpRejectedHelp=Puedes corregirla con una factura rectificativa y enviarla de nuevo.
+FpCreditNote=Crear abono
+FpPaidAt=Pagada el %s, según FACe.
+FpRegisterPayment=Registrar el pago en Dolibarr
+FpCancelledAt=Anulada el %s.
+FpLastCheck=Última comprobación: %s
+FpHistory=Historial en FACe
+FpUnknownTitle=No sabemos si FACe la recibió
+FpUnknownText=La conexión se cortó mientras enviábamos el %s. Mira si te ha llegado el justificante de FACe por email antes de volver a enviarla.
+FpUnknownClaim=Tengo el nº de registro
+FpUnknownResend=No me ha llegado, enviarla otra vez
+FpRegistryLabel=Nº de registro FACe
+FpNoRightSend=No tienes permiso para enviar facturas a FACe.
+FpNotValidatedYet=Valida la factura para revisarla antes de enviarla a FACe.
+FpPdfMissing=No hay PDF de la factura. Lo generamos al enviar.
+#
+# Problemas (C) y avisos (W)
+#
+C01=La factura sigue en borrador. Valídala antes de enviarla.
+C02=Faltan los códigos DIR3 del organismo.
+C02Format=El código %s no tiene el formato correcto.
+C02NotPublic=Este cliente no está marcado como Administración pública.
+C03=El NIF del cliente falta o no es válido.
+C04=Faltan datos de tu empresa: %s.
+C05=FACe solo admite euros en esta versión. La factura está en %s.
+C06=La línea %s tiene un impuesto que no podemos traducir a Facturae: %s.
+C07=Los totales no cuadran con Dolibarr (%s: Dolibarr %s €, archivo %s €). No enviamos nada que no coincida al céntimo. Escríbenos a support@facilo.es.
+C08=La línea %s va sin IVA y necesita el motivo de exención.
+C09=A la factura rectificativa le falta %s.
+C10=El archivo pesa %s MB y FACe admite como máximo %s MB. Quita el PDF adjunto o reduce los archivos.
+C11=No hay un certificado válido para firmar.
+C12=Esta factura ya está en FACe (registro %s). Solo se puede reenviar si FACe la rechaza o se anula.
+C12Unknown=Se intentó enviar el %s y no sabemos si FACe la recibió. Mira el justificante de FACe antes de reenviarla.
+W01=Algunas administraciones no exigen FACe por debajo de 5.000 €. Si te la piden por FACe, envíala igual.
+W02=Este organismo pide número de expediente y la factura no lo tiene.
+W03=Tu certificado caduca el %s. Renuévalo para no quedarte sin poder enviar.
+W04=Pagas por transferencia pero no hay IBAN. FACe no admite la factura sin él: añade la cuenta bancaria de tu empresa.
+W05=Algunas líneas no tienen unidad de medida. Usaremos «Unidades».
+FpSchemaError=El archivo Facturae no cumple el esquema oficial. No enviamos nada que no sea válido. Escríbenos a support@facilo.es.
+FpFieldName=el nombre o razón social
+FpFieldNif=el NIF
+FpFieldAddress=la dirección
+FpFieldZip=el código postal
+FpFieldTown=la población
+FpFieldProvince=la provincia
+FpFieldCountry=el país
+FpCorrInvoice=la factura que corrige
+FpCorrReason=Motivo de la rectificación
+FpCorrMethod=Método de la rectificación
+FpFileRef=Nº de expediente
+FpContractRef=Nº de contrato
+FpExemptReason=Motivo de exención
+FpTotalBase=Base imponible
+FpTotalVat=IVA
+FpTotalSurcharge=Recargo de equivalencia
+FpTotalWithheld=Retención
+FpTotalInvoice=Total de la factura
+#
+# Envío y estados
+#
+FpSentOk=Enviada (registro %s)
+FpNotSent=No enviada: %s
+FpErrFace=Error de FACe: %s %s
+FpErrNotRegistered=FACe no reconoce tu certificado (%s %s). Comprueba que lo registraste en FACe.
+FpErrNetwork=No hemos podido llegar a FACe. Comprueba la conexión a internet del servidor y vuelve a probar.
+FpErrTimeout=FACe no ha respondido a tiempo. Puede que la haya recibido: mira si te llega su justificante por email antes de reenviarla.
+FpErrNoRight=No tienes permiso para enviar facturas a FACe.
+FpErrSaveFile=No hemos podido guardar el archivo Facturae en los documentos de la factura.
+FpErrSignCheck=La firma no ha superado la comprobación y no hemos enviado nada. Vuelve a subir el certificado.
+FpErrCancelReason=Escribe el motivo de la anulación.
+FpErrRegistry=El número de registro no es válido.
+FpErrRegistryUnknown=FACe no encuentra el registro %s.
+FpCancelAsked=Anulación solicitada. FACe te dirá si el organismo la acepta.
+FpStatus1200=Registrada en FACe
+FpStatus1300=Registrada en el registro contable
+FpStatus2400=Contabilizada la obligación de pago
+FpStatus2500=Pagada
+FpStatus2600=Rechazada
+FpStatus3100=Anulada
+FpStatus4100=Anulación no solicitada
+FpStatus4200=Anulación solicitada
+FpStatus4300=Anulación aceptada
+FpStatus4400=Anulación rechazada
+FpStatusUnknown=Estado %s: %s
+FpStatusUNK=Sin confirmar
+FpEventPaid=FACe: factura %s pagada
+FpEventRejected=FACe: factura %s rechazada
+FpReason=Motivo
+FpCertExpiresSoon=Factura Pública: tu certificado caduca el %s
+#
+# Envío masivo
+#
+FpBulkAction=Enviar a FACe
+FpBulkTitle=Resultado del envío
+FpColInvoice=Factura
+FpColBody=Organismo
+FpColResult=Resultado
+FpColDetail=Detalle
+FpColAmount=Importe
+FpColRegistered=Registrada el
+FpColDays=Días
+FpColStatus=Estado en FACe
+FpBulkNone=No has seleccionado ninguna factura.
+FpBulkNoAccess=No tienes acceso a esta factura.
+FpBulkSummary=%s enviadas, %s sin enviar.
+#
+# Resumen
+#
+FpSummaryTitle=Tus facturas a administraciones
+FpCardSentMonth=Enviadas este mes
+FpCardPending=Pendientes de cobro
+FpCardPendingAmount=Importe pendiente
+FpByBody=Por organismo
+FpColSentCount=Enviadas
+FpCardRejected=Rechazadas
+FpWaitingPayment=Esperando el pago
+FpSummaryEmpty=Aún no has enviado ninguna factura a FACe. Abre una factura validada de un organismo público y pulsa «Enviar a FACe».
+FpFilterBody=Organismo
+FpFilterStatus=Estado
+FpFilterAll=Todos
+FpFilterFrom=Desde
+FpFilterTo=Hasta
+FpFilter=Filtrar
+FpAllSent=Todas las enviadas
+FpSeeAll=Ver todas
+FpWidgetEmpty=Aún no has enviado facturas a FACe.
+FpSentOn=Enviada el %s. Nº de registro FACe:
+FpRejectedOn=Rechazada el %s.
+FpBulkConfirm=Vas a enviar %s facturas a FACe. Revisamos cada una antes y solo enviamos las que estén correctas.
+FpLastAttempt=El último intento no llegó a FACe: %s
+FpDir3Pick=Elige la oficina y pulsa Guardar.
+FpResBlocked=No enviada
+FpResError=Error de FACe
+FpCopySupport=Copiar detalles para soporte

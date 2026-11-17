@@ -1,0 +1,334 @@
+# Factura Pública - Copyright (C) 2026 Facilo <info@facilo.es> - GPL v3
+#
+# Module
+#
+Module210217Name=Factura Pública
+Module210217Desc=Send your invoices to Spanish public bodies from Dolibarr: signed Facturae, sending to FACe and tracking until you are paid.
+FacturaPublicaDescription=Send your invoices to Spanish public bodies from Dolibarr: signed Facturae, sending to FACe and tracking until you are paid.
+FacturaPublica=Factura Pública
+FpRightRead=See the FACe status of invoices
+FpRightSend=Send invoices to FACe and ask for cancellations
+FpRightSetup=Set up Factura Pública and the certificate
+FpMenuSummary=Invoices to public bodies
+FpWidgetTitle=Invoices to public bodies
+FpTabName=Factura Pública
+FpTabWizard=Getting started
+FpTabOptions=Options
+FpTabImport=Import DIR3
+FpTabAbout=About
+FpCron=Factura Pública
+FpCronDaily=Factura Pública: FACe statuses and certificate reminder
+FpCronDailyHelp=Checks in FACe the status of sent invoices that are not yet paid or rejected, and warns when the certificate expires in 30 or 7 days.
+FpCronWeekly=Factura Pública: FACe list of public bodies
+FpCronWeeklyHelp=Updates the list of public bodies and DIR3 codes from FACe.
+FpTestModeBar=Test mode: invoices go to the FACe test environment and never reach a public body.
+FpCertExpiredBar=Your certificate expired on %s. Upload a new one to keep sending invoices.
+FpLiteLock=Available in the full Factura Pública: signing, sending to FACe and tracking until you are paid.
+FpLiteLocked=Available in the full Factura Pública: signing, sending to FACe and tracking until you are paid.
+FpSeeOnStore=See the full Factura Pública
+FpUninstallCert=Also delete the certificate
+FpUninstallCertHelp=If ticked, disabling the module deletes the stored certificate. Sent invoices and their history are kept.
+#
+# Wizard
+#
+FpWizardTitle=Get ready to send to FACe in four steps
+FpStep1=Your company details
+FpStep2=Your digital certificate
+FpStep3=Register your certificate in FACe
+FpStep4=Test the connection
+FpStep1Intro=These details appear on every invoice you send. Check that they are complete.
+FpStep1Missing=%s is missing. Fill it in under Setup > Company.
+FpComplete=Complete
+FpAllGood=All set.
+FpNext=Next
+FpBack=Back
+FpStep2Intro=Upload the certificate of the company or its representative (.p12 or .pfx). We use it to sign your invoices and talk to FACe. It is stored encrypted on your server and never leaves it.
+FpCertFile=Certificate file
+FpCertPass=Certificate password
+FpCertCheck=Check certificate
+FpCertResult=Holder: %s · Tax ID: %s · Issued by: %s · Expires on %s
+FpCertBoth=It can sign invoices and connect to FACe.
+FpCertSeal=This certificate can connect to FACe but cannot sign invoices. Upload a representative or personal certificate.
+FpCertErrPass=The password is not correct.
+FpCertErrNotP12=This file is not a .p12 or .pfx certificate.
+FpCertErrExpired=This certificate expired on %s.
+FpCertErrNotYet=This certificate is not valid until %s.
+FpCertErrNoKey=The file does not include the private key. Export it again ticking "Export the private key".
+FpCertErrLegacy=This certificate uses old encryption the server cannot open. Export it again from your browser, or ask your host to enable OpenSSL legacy support.
+FpCertErrStore=We could not store the certificate on the server. Check that Dolibarr's documents folder is writable.
+FpCertNifDiffers=The certificate's tax ID (%s) does not match your company's (%s). If it is your representative's certificate, you can carry on.
+FpCertSaved=Certificate saved.
+FpCertCurrent=Current certificate
+FpCertReplace=Change the certificate
+FpStep3Intro=FACe only accepts invoices from certificates it knows. Do this once:
+FpStep3a=Copy the public key below.
+FpStep3b=Go to FACe's supplier area and sign in.
+FpStep3c=Register the certificate for web services and paste the key.
+FpOpenFace=Open FACe
+FpCopyKey=Copy public key
+FpCopied=Copied
+FpDownloadKey=Download key (.pem)
+FpRegisteredDone=I have registered it in FACe
+FpEnv=Environment
+FpEnvProd=Live
+FpEnvTest=Test (reaches no public body)
+FpTestConn=Test connection
+FpConnOk=Connected to FACe. You can now send invoices.
+FpConnNotRegistered=FACe does not recognise this certificate. Check you registered it in step 3. It can take a few minutes.
+FpConnNetwork=We could not reach FACe. Check the server's internet connection and try again.
+FpConnError=FACe returned an error while testing the connection. Try again in a few minutes.
+FpConnNoCert=First upload a valid certificate in step 2.
+FpPersonType=Issuer type
+FpPersonAuto=From the NIF: %s
+FpPersonJ=Legal entity (company)
+FpPersonF=Individual (self-employed)
+FpConnAdmins=FACe returned %s administrations.
+FpNeedCertFirst=First upload a valid certificate in step 2.
+FpSetupNoRight=You are not allowed to set up Factura Pública.
+#
+# Options
+#
+FpOptionsTitle=Factura Pública options
+FpOptAttachPdf=Attach the invoice PDF to the Facturae file
+FpOptAttachPdfHelp=FACe accepts it and many public bodies like it. Remove it if the file goes over 10 MB.
+FpOptTsa=Timestamp (optional)
+FpOptTsaHelp=Address of a timestamping server (TSA). Leave it empty if you do not need it.
+FpOptVfMode=VERI*FACTU check URL
+FpOptVfModeHelp=Your billing system creates the VERI*FACTU QR code URL. When the invoice carries it, Factura Pública copies it unchanged into the Facturae file as its own field, as Orden HAC/1177/2024 requires. It never computes it, never creates VERI*FACTU records and never sends anything to the AEAT.
+FpOptVfNone=Do not include
+FpOptVfAuto=Copy it automatically when the invoice has one
+FpOptVfField=Copy it from a specific invoice field
+FpOptVfFieldPick=Invoice field holding the URL
+FpOptVfNoFields=Your invoices have no extra fields.
+FpOptVfPlace=Where it goes in the file
+FpOptVfPlaceAdditional=Invoice additional data
+FpOptSplit=Split series and number
+FpOptSplitHelp=If your refs look like FA2611-0042, send "FA2611" as the series and "0042" as the number. Otherwise the whole ref is the number.
+FpOptNotify=Email for FACe notices
+FpOptNotifyHelp=FACe writes here when an invoice changes status. Left empty, we use yours or the company's.
+FpOptExemptOwn=None: ask on each line
+FpOptExempt=Default exemption reason
+FpOptExemptHelp=Used on lines without VAT that have no reason of their own.
+FpOptSaved=Options saved.
+FpExemptE1=Exempt under article 20 of the VAT Act
+FpExemptE2=Exempt under article 21 of the VAT Act (export)
+FpExemptE3=Exempt under article 22 of the VAT Act
+FpExemptE4=Exempt under articles 23 and 24 of the VAT Act
+FpExemptE5=Exempt under article 25 of the VAT Act (intra-EU supply)
+FpExemptE6=Exempt for other reasons
+FpExemptIsp=Reverse charge
+#
+# Import DIR3
+#
+FpImportTitle=Import DIR3 codes from fields you already have
+FpImportIntro=If you already kept your customers' DIR3 codes in extra fields, choose which field holds each code and we copy them into Factura Pública. Only customers without codes are filled in.
+FpImportField=Third-party extra field
+FpImportNone=Do not import
+FpImportRun=Import
+FpImportDone=Imported %s customers. Skipped %s that already had codes or had an invalid format.
+FpImportNoFields=Your third parties have no extra fields to import.
+#
+# About
+#
+FpAboutIntro=Factura Pública turns your validated Dolibarr invoices into signed Facturae 3.2.2, sends them to FACe and tracks their status until you are paid.
+FpAboutNot=Factura Pública does not issue invoices or create VERI*FACTU records: it reads the invoices your software has already issued and never changes them.
+FpAboutSupport=Help: support@facilo.es
+FpAboutEdition=Edition
+FpEditionFull=Full
+FpEditionLite=Lite
+FpAboutVersion=Version
+FpAboutLibrary=Uses facturae-php by josemmo (MIT licence).
+#
+# Third-party tab
+#
+FpIsPublic=It is a public body
+FpDir3Help=DIR3 codes tell FACe which office your invoice goes to. The public body gives them to you, usually in the contract or the order.
+FpDir3Search=Search the public body by name or code
+FpOc=Accounting office
+FpOg=Managing body
+FpUt=Processing unit
+FpOp=Proposing body (optional)
+FpNeedsFileRef=Asks for a file number
+FpNotifyEmail=Email for FACe notices (optional)
+FpDir3Format=A DIR3 code has 9 characters: one letter and 8 letters or digits.
+FpDir3Refresh=Update FACe list
+FpDir3Updated=List updated on %s
+FpDir3Never=The FACe list has not been downloaded yet.
+FpDir3NoResults=No results. Try another word or type the public body's DIR3 code.
+FpDir3Use=Use these codes
+FpDir3Save=Save
+FpDir3Find=Search in FACe
+FpDir3Searching=Searching...
+FpDir3Refreshed=FACe list updated: %s public bodies.
+FpDir3RefreshError=We could not download the FACe list: %s
+FpEmailFormat=The email address is not valid.
+FpSaved=Saved.
+FpTabHistory=Invoices sent to FACe
+FpTabNoHistory=You have not sent invoices for this customer to FACe yet.
+#
+# Invoice box
+#
+FpBoxTitle=Factura Pública
+FpStepReview=Review
+FpStepFacturae=Facturae
+FpStepSign=Signature
+FpStepFace=FACe
+FpStepPaid=Payment
+FpNotPublic=This customer is not marked as a public body.
+FpConfigureIt=Set it up
+FpBeforeSend=Before sending, check this:
+FpBlockers=%s to fix
+FpWarnings=%s warnings
+FpFix=Fix
+FpGoToCert=Go to certificate
+FpWriteUs=Write to us
+FpReady=Ready to send to %s.
+FpSend=Send to FACe
+FpSendOff=Fix what is marked in red to be able to send.
+FpDownloadXml=Download Facturae
+FpDownloadSigned=Download signed
+FpConfirmTitle=Send to FACe
+FpConfirmText=You are about to send invoice %s for %s € to %s. FACe will register it and pass it to its accounting office.
+FpConfirmSend=Send
+FpConfirmCancel=Cancel
+FpSentAt=Sent on %s. FACe registration number: %s.
+FpCheckNow=Check now
+FpAskCancel=Ask for cancellation
+FpCancelTitle=Ask FACe for cancellation
+FpCancelText=FACe will ask the public body to cancel invoice %s. The public body decides whether to accept.
+FpCancelReasonLabel=Reason for cancellation
+FpRejectedAt=Rejected on %s. Reason: %s
+FpRejectedHelp=You can correct it with a corrective invoice and send it again.
+FpCreditNote=Create credit note
+FpPaidAt=Paid on %s, according to FACe.
+FpRegisterPayment=Record the payment in Dolibarr
+FpCancelledAt=Cancelled on %s.
+FpLastCheck=Last check: %s
+FpHistory=FACe history
+FpUnknownTitle=We do not know whether FACe received it
+FpUnknownText=The connection dropped while sending on %s. Check whether FACe's receipt reached you by email before sending it again.
+FpUnknownClaim=I have the registration number
+FpUnknownResend=It did not arrive, send it again
+FpRegistryLabel=FACe registration number
+FpNoRightSend=You are not allowed to send invoices to FACe.
+FpNotValidatedYet=Validate the invoice to review it before sending it to FACe.
+FpPdfMissing=There is no invoice PDF. We create it when sending.
+#
+# Problems (C) and warnings (W)
+#
+C01=The invoice is still a draft. Validate it before sending.
+C02=The public body's DIR3 codes are missing.
+C02Format=The code %s does not have the right format.
+C02NotPublic=This customer is not marked as a public body.
+C03=The customer's tax ID is missing or not valid.
+C04=Your company details are missing: %s.
+C05=FACe only accepts euros in this version. The invoice is in %s.
+C06=Line %s has a tax we cannot translate to Facturae: %s.
+C07=The totals do not match Dolibarr (%s: Dolibarr %s €, file %s €). We send nothing that does not match to the cent. Write to us at support@facilo.es.
+C08=Line %s has no VAT and needs the exemption reason.
+C09=The corrective invoice is missing %s.
+C10=The file weighs %s MB and FACe accepts at most %s MB. Remove the attached PDF or reduce the files.
+C11=There is no valid certificate for signing.
+C12=This invoice is already in FACe (registration %s). It can only be sent again if FACe rejects it or it is cancelled.
+C12Unknown=Sending was tried on %s and we do not know whether FACe received it. Check FACe's receipt before sending it again.
+W01=Some public bodies do not require FACe below EUR 5,000. If they ask for it through FACe, send it anyway.
+W02=This public body asks for a file number and the invoice has none.
+W03=Your certificate expires on %s. Renew it so you can keep sending.
+W04=You are paid by transfer but there is no IBAN. FACe does not accept the invoice without it: add your company bank account.
+W05=Some lines have no unit of measure. We will use "Units".
+FpSchemaError=The Facturae file does not meet the official schema. We send nothing that is not valid. Write to us at support@facilo.es.
+FpFieldName=the name or company name
+FpFieldNif=the tax ID
+FpFieldAddress=the address
+FpFieldZip=the postcode
+FpFieldTown=the town
+FpFieldProvince=the province
+FpFieldCountry=the country
+FpCorrInvoice=the invoice it corrects
+FpCorrReason=Correction reason
+FpCorrMethod=Correction method
+FpFileRef=File number
+FpContractRef=Contract number
+FpExemptReason=Exemption reason
+FpTotalBase=Tax base
+FpTotalVat=VAT
+FpTotalSurcharge=Equivalence surcharge
+FpTotalWithheld=Withholding
+FpTotalInvoice=Invoice total
+#
+# Sending and statuses
+#
+FpSentOk=Sent (registration %s)
+FpNotSent=Not sent: %s
+FpErrFace=FACe error: %s %s
+FpErrNotRegistered=FACe does not recognise your certificate (%s %s). Check you registered it in FACe.
+FpErrNetwork=We could not reach FACe. Check the server's internet connection and try again.
+FpErrTimeout=FACe did not answer in time. It may have received it: check whether its receipt reaches you by email before sending again.
+FpErrNoRight=You are not allowed to send invoices to FACe.
+FpErrSaveFile=We could not save the Facturae file in the invoice's documents.
+FpErrSignCheck=The signature failed its check and nothing was sent. Upload the certificate again.
+FpErrCancelReason=Write the reason for the cancellation.
+FpErrRegistry=The registration number is not valid.
+FpErrRegistryUnknown=FACe cannot find registration %s.
+FpCancelAsked=Cancellation requested. FACe will tell you whether the public body accepts it.
+FpStatus1200=Registered in FACe
+FpStatus1300=Registered in the accounting register
+FpStatus2400=Payment obligation recorded
+FpStatus2500=Paid
+FpStatus2600=Rejected
+FpStatus3100=Cancelled
+FpStatus4100=Cancellation not requested
+FpStatus4200=Cancellation requested
+FpStatus4300=Cancellation accepted
+FpStatus4400=Cancellation rejected
+FpStatusUnknown=Status %s: %s
+FpStatusUNK=Unconfirmed
+FpEventPaid=FACe: invoice %s paid
+FpEventRejected=FACe: invoice %s rejected
+FpReason=Reason
+FpCertExpiresSoon=Factura Pública: your certificate expires on %s
+#
+# Bulk sending
+#
+FpBulkAction=Send to FACe
+FpBulkTitle=Sending result
+FpColInvoice=Invoice
+FpColBody=Public body
+FpColResult=Result
+FpColDetail=Detail
+FpColAmount=Amount
+FpColRegistered=Registered on
+FpColDays=Days
+FpColStatus=FACe status
+FpBulkNone=You have not selected any invoice.
+FpBulkNoAccess=You do not have access to this invoice.
+FpBulkSummary=%s sent, %s not sent.
+#
+# Summary
+#
+FpSummaryTitle=Your invoices to public bodies
+FpCardSentMonth=Sent this month
+FpCardPending=Awaiting payment
+FpCardPendingAmount=Amount outstanding
+FpByBody=By public body
+FpColSentCount=Sent
+FpCardRejected=Rejected
+FpWaitingPayment=Awaiting payment
+FpSummaryEmpty=You have not sent any invoice to FACe yet. Open a validated invoice of a public body and click "Send to FACe".
+FpFilterBody=Public body
+FpFilterStatus=Status
+FpFilterAll=All
+FpFilterFrom=From
+FpFilterTo=To
+FpFilter=Filter
+FpAllSent=All sent invoices
+FpSeeAll=See all
+FpWidgetEmpty=You have not sent invoices to FACe yet.
+FpSentOn=Sent on %s. FACe registry number:
+FpRejectedOn=Rejected on %s.
+FpBulkConfirm=You are about to send %s invoices to FACe. We check each one first and only send those that are correct.
+FpLastAttempt=The last attempt did not reach FACe: %s
+FpDir3Pick=Choose the office and press Save.
+FpResBlocked=Not sent
+FpResError=FACe error
+FpCopySupport=Copy details for support
